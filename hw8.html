@@ -35,6 +35,7 @@
                 <li><a href="hw5.html">Week5</a></li>
                 <li><a href="hw6.html">Week6</a></li>
                 <li><a href="hw7.html">Week7</a></li>
+                <li><a href="hw8.html">Week8</a></li>
                 <li><a href="generic.html">Generic</a></li>
             </ul>
             <ul class="actions stacked">
@@ -48,13 +49,13 @@
         <section id="banner" class="style2">
             <div class="inner">
                 <span class="image">
-								<img src="images/hw3/process.jpg" alt="" />
+								<img src="images/hw8/mode-blue.jpg" alt="" />
 							</span>
                 <header class="major">
-                    <h1>Week3</h1>
+                    <h1>Week8</h1>
                 </header>
                 <div class="content">
-                    <p>Electronics Production<br /> make an in-circuit programmer that includes a microcontroller.</p>
+                    <p>Molding and Casting<br /> design a mold around the stock and tooling that you'll be using, mill it (rough cut + three-axis finish cut), and use it to cast parts.</p>
                 </div>
             </div>
         </section>
@@ -64,34 +65,21 @@
         <!-- Main -->
         <div id="main">
 
-            <!-- One -->
-            <section id="one">
-                <div class="inner">
-                    <header class="major">
-                        <h2>PCB Production</h2>
-                    </header>
-                    <p>This week, I tried to mill and stuff the board. And I also tested it to verify that it works. </p>
-                </div>
-            </section>
+
 
             <!-- Two -->
             <section id="two" class="spotlights">
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/program.jpg" alt="" data-position="center center" />
+                        <img src="images/hw8/3dmodel.JPG" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Software Operation</h3>
+                                <h3>3D modelling and stl file generation</h3>
                             </header>
-                            <p>The PCB printing process is controlled by a software. And I followed these steps:
-                                <br> 1. Open the machine, use the commands to connect the software with machine.
-                                <br> 2. Double-tap a uncutted board on the sacrificial layer, and equip the machine with a end mill.
-                                <br> 3. Import the PNG files to start mods, and select "trace" or "outline" and calculate.
-                                <br> 4. Adjust the parameters, select "move to origin", and make the end mill bit touch the board.
-                                <br> 5. Click "send the file to the device" and the machine will start to work.
+                            <p>This week, I would like to make a flower. I used Rhino to make the model and then export it as stl file.
                             </p>
                         </div>
                     </div>
@@ -99,45 +87,29 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/process.jpg" alt="" data-position="top center" />
+                        <img src="images/hw8/vcave.jpg" alt="" data-position="top center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>PCB Milling</h3>
+                                <h3>Toolpath generation</h3>
                             </header>
-                            <p>I used machine to mill the trace first and then the outline. Between these two milling process, I switched the 1/64 end mill to 1/32 end mill.</p>
+                            <p>I then used VCarve to generate the toolpath of the designed 3D model.</p>
                         </div>
                     </div>
                 </section>
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/finish.jpg" alt="" data-position="center center" />
+                        <img src="images/hw8/shopbot.jpg" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Milled PCB</h3>
+                                <h3>Shopbot Setting</h3>
                             </header>
-                            <p>It is very excited that to see the milled PCB. This is the first time I made the PCB by myself!</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <a class="image">
-                        <img src="images/hw3/fail.jpg" alt="" data-position="center center" />
-                    </a>
-                    <div class="content">
-                        <div class="inner">
-                            <header class="major">
-                                <h3>Some Failure Samples</h3>
-                            </header>
-                            <p>Because it is the first time I try PCB milling and soldering, I met many difficulities.
-                                <br>When I first began to milling, because the board and the underside were not glued tightly enough, in the Mill Outline, the board and the ground as a class began to rotate, and I stopped the machine urgently.
-                                <br>The second time, the trace on the side was not carved because the bottom was not flat enough.
-                                <br>The first time I solded, I applied too much solder and failed to remove it. Instead, I burned the electronic components by trying for too long.
+                            <p>
+                                Then I used software to prepare and start the ShopBot CNC machines. For the preparation, after adjusting the x and y position with button, I use the manual method to To set the Z zero location. After setting the xyz position, I start the machine.
                             </p>
                         </div>
                     </div>
@@ -145,14 +117,15 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/final.jpg" alt="" data-position="center center" />
+                        <img src="images/hw8/cutting.jpg" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Final PCB</h3>
+                                <h3>Milling</h3>
                             </header>
-                            <p>Finally!!! It works. All electronic components (e.g., forward voltage, capacitance and inductance) are solded. And I used the microscope to get a closer and more precise look to check my solded board.
+                            <p>Then I wait the machine milling the mold. At the beginning, I used the round mill, but TA told me that my pattern is a little complex, maybe I can try the flat mill. Then Tom helped me stop the machine, swith the mill, and
+                                re-start the machine.
                             </p>
                         </div>
                     </div>
@@ -160,14 +133,14 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/plug.jpg" alt="" data-position="center center" />
+                        <img src="images/hw8/blue-filling.jpg" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Board Programing</h3>
+                                <h3>Silicon Casting</h3>
                             </header>
-                            <p>To program the board, I connected the board to the computer.
+                            <p>I used 1A:1B OOMOO and mixed both individually before combining and mixing again for 3 minutes. Then I poured the liquid into the mold and let it sit overnight.
                             </p>
                         </div>
                     </div>
@@ -175,19 +148,64 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/code.jpg" alt="" data-position="center center" />
+                        <img src="images/hw8/fail.jpg" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Success</h3>
+                                <h3>A failed attempt</h3>
                             </header>
-                            <p>And I runed the command. As shown in the figure, "Verified..." is shown in the screen! I aslo checked the USB suitable. They are look good. I think currently, I can now use this board to program others' board. Happy ending!
+                            <p>It is worth mentioning that I did not mix AB OOMOO in a 1:1 ratio at the beginning, so the liquid did not solidify despite sitting for a long time. I removed the remaining OOMOO with alcohol and did the silcon casting again
                             </p>
                         </div>
                     </div>
                 </section>
 
+                <section>
+                    <a class="image">
+                        <img src="images/hw8/mode-blue.jpg" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>The silicone mold</h3>
+                            </header>
+                            <p>After a night, my mold was super sticky but I peeled them out of the wax mould. I got my mold! How happy I am!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw8/white-filling.jpg" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Hydrostone Casting</h3>
+                            </header>
+                            <p>Then I tried hydrostone casting. I mixed together 40g water to 200g hydrostone and slowly poured it into my mold. But while pouring the liquid, I realized that the hyrdostone mixture was not watery enough to fill all the way.
+                                Then I added a little more water and then re-fill my mold.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw8/final.jpg" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Final Product</h3>
+                            </header>
+                            <p>This is my final flower!
+                            </p>
+                        </div>
+                    </div>
+                </section>
         </div>
 
         <!-- Contact -->

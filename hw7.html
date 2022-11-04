@@ -48,13 +48,13 @@
         <section id="banner" class="style2">
             <div class="inner">
                 <span class="image">
-								<img src="images/hw3/process.jpg" alt="" />
+								<img src="images/hw7/device.JPG" alt="" />
 							</span>
                 <header class="major">
-                    <h1>Week3</h1>
+                    <h1>Week7</h1>
                 </header>
                 <div class="content">
-                    <p>Electronics Production<br /> make an in-circuit programmer that includes a microcontroller.</p>
+                    <p>Embedded Programming<br /> browse through the data sheet for microcontroller and and program my board to do something.</p>
                 </div>
             </div>
         </section>
@@ -64,34 +64,21 @@
         <!-- Main -->
         <div id="main">
 
-            <!-- One -->
-            <section id="one">
-                <div class="inner">
-                    <header class="major">
-                        <h2>PCB Production</h2>
-                    </header>
-                    <p>This week, I tried to mill and stuff the board. And I also tested it to verify that it works. </p>
-                </div>
-            </section>
+
 
             <!-- Two -->
             <section id="two" class="spotlights">
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/program.jpg" alt="" data-position="center center" />
+                        <img src="images/hw7/board1.JPG" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Software Operation</h3>
+                                <h3>Master Node</h3>
                             </header>
-                            <p>The PCB printing process is controlled by a software. And I followed these steps:
-                                <br> 1. Open the machine, use the commands to connect the software with machine.
-                                <br> 2. Double-tap a uncutted board on the sacrificial layer, and equip the machine with a end mill.
-                                <br> 3. Import the PNG files to start mods, and select "trace" or "outline" and calculate.
-                                <br> 4. Adjust the parameters, select "move to origin", and make the end mill bit touch the board.
-                                <br> 5. Click "send the file to the device" and the machine will start to work.
+                            <p>In the sensor network, an open-source electronic prototyping platform (Arduino Nano 33 BLE) with a BLE (nRF52840) module are used as the master node.
                             </p>
                         </div>
                     </div>
@@ -99,45 +86,15 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/process.jpg" alt="" data-position="top center" />
+                        <img src="images/hw7/board1_sch.JPG" alt="" data-position="top center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>PCB Milling</h3>
+                                <h3>Schematic diagram</h3>
                             </header>
-                            <p>I used machine to mill the trace first and then the outline. Between these two milling process, I switched the 1/64 end mill to 1/32 end mill.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <a class="image">
-                        <img src="images/hw3/finish.jpg" alt="" data-position="center center" />
-                    </a>
-                    <div class="content">
-                        <div class="inner">
-                            <header class="major">
-                                <h3>Milled PCB</h3>
-                            </header>
-                            <p>It is very excited that to see the milled PCB. This is the first time I made the PCB by myself!</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <a class="image">
-                        <img src="images/hw3/fail.jpg" alt="" data-position="center center" />
-                    </a>
-                    <div class="content">
-                        <div class="inner">
-                            <header class="major">
-                                <h3>Some Failure Samples</h3>
-                            </header>
-                            <p>Because it is the first time I try PCB milling and soldering, I met many difficulities.
-                                <br>When I first began to milling, because the board and the underside were not glued tightly enough, in the Mill Outline, the board and the ground as a class began to rotate, and I stopped the machine urgently.
-                                <br>The second time, the trace on the side was not carved because the bottom was not flat enough.
-                                <br>The first time I solded, I applied too much solder and failed to remove it. Instead, I burned the electronic components by trying for too long.
+                            <p>
+                                Here is the schematic diagram of master node, which has BLE module.
                             </p>
                         </div>
                     </div>
@@ -145,14 +102,29 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/final.jpg" alt="" data-position="center center" />
+                        <img src="images/hw7/board_imu.JPG" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Final PCB</h3>
+                                <h3>IMU</h3>
                             </header>
-                            <p>Finally!!! It works. All electronic components (e.g., forward voltage, capacitance and inductance) are solded. And I used the microscope to get a closer and more precise look to check my solded board.
+                            <p>Then I designed and manufactured a modular and compact printed circuit board (PCB) for IMUs, shown in Figure. To reduce the dimensions and weight of the sensor network, I reduced the size of the PCB to only 1.1 cm by 1.1 cm.
+                                It is a a 4-layer PCB layout scheme.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw7/board_imu_sch.JPG" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Schematic diagram</h3>
+                            </header>
+                            <p>As shown in Figure, here is the schematic diagram for IMU node.
                             </p>
                         </div>
                     </div>
@@ -160,14 +132,14 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/plug.jpg" alt="" data-position="center center" />
+                        <img src="images/hw7/gerber.JPG" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Board Programing</h3>
+                                <h3>Gerber Viewing</h3>
                             </header>
-                            <p>To program the board, I connected the board to the computer.
+                            <p>Considering it is a multi-layer structure, I send it to a china factory to print the PCB. Before printing I generated the gerber file by https://www.gerber-viewer.com/.
                             </p>
                         </div>
                     </div>
@@ -175,18 +147,67 @@
 
                 <section>
                     <a class="image">
-                        <img src="images/hw3/code.jpg" alt="" data-position="center center" />
+                        <img src="images/hw7/imu.JPG" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Success</h3>
+                                <h3>IMU welding</h3>
                             </header>
-                            <p>And I runed the command. As shown in the figure, "Verified..." is shown in the screen! I aslo checked the USB suitable. They are look good. I think currently, I can now use this board to program others' board. Happy ending!
+                            <p>Due to the small size, the IMU is very difficult to weld.
                             </p>
                         </div>
                     </div>
                 </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw7/device.JPG" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Final Devide</h3>
+                            </header>
+                            <p>Then I made the final product which can recieve the signals from IMU motion, which shown as figure.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw7/bigger.jpg" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Amplification</h3>
+                            </header>
+                            <p>These two pictures have larger components and can be seen more clearly.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw7/signal.JPG" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Foot motion signals</h3>
+                            </header>
+                            <p>Then I put the device on the shoes and did some foot gestures. As shown in Figure, sample IMU signals are collected. The series in the graph illustrate the fluctuation of four value in the quaternions while performing five
+                                different type of foot gesture, collected from three IMUs on the right foot.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
 
         </div>
 
