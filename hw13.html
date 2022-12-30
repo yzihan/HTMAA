@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>HTMAA by Zihan Yan</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <!-- Note: The "styleN" class below should match that of the banner element. -->
+        <header id="header" class="alt style2">
+            <a href="index.html" class="logo"><strong>HTMAA</strong> <span>by Zihan Yan</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://yzihan.github.io/">About Me</a></li>
+                <li><a href="hw1.html">Week1</a></li>
+                <li><a href="hw2.html">Week2</a></li>
+                <li><a href="hw3.html">Week3</a></li>
+                <li><a href="hw4.html">Week4</a></li>
+                <li><a href="hw5.html">Week5</a></li>
+                <li><a href="hw6.html">Week6</a></li>
+                <li><a href="hw7.html">Week7</a></li>
+                <li><a href="hw8.html">Week8</a></li>
+                <li><a href="hw9.html">Week9</a></li>
+                <li><a href="hw10.html">Week10</a></li>
+                <li><a href="hw11.html">Week11</a></li>
+                <li><a href="hw12.html">Week12</a></li>
+                <li><a href="hw13.html">Week13</a></li>
+                <li><a href="hw14.html">Week14</a></li>
+                <li><a href="final.html">Final Project</a></li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="#" class="button primary fit">Get Started</a></li>
+                <!-- <li><a href="#" class="button fit">Log In</a></li> -->
+            </ul>
+        </nav>
+
+        <!-- Banner -->
+        <!-- Note: The "styleN" class below should match that of the header element. -->
+        <section id="banner" class="style2">
+            <div class="inner">
+                <span class="image">
+								<img src="images/hw14/system.JPG" alt="" />
+							</span>
+                <header class="major">
+                    <h1>Week13</h1>
+                </header>
+                <div class="content">
+                    <p>Machine Building<br /> Each section will design and build a "machine" - this means anything that includes mechanism, actuation, automation and application.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h2>Sand Painting
+                        </h2>
+                    </header>
+                    <p>This week, I took part in the machine building for sand painting named "Zen Garden" with the team member in CBA session. I was responsible for the following things with Wenhao: </br>
+                        1. Take a gcode file as input and actuate the stepper motors accordingly. </br>
+                        2. Calibrate the machine's XY coordinate system and gcode's XY coordinate system. </br>
+                        3. Test the trajectory of motion to see if it meets expectations.</br>
+                        I recorded the things I did in this website page.
+                    </p>
+                </div>
+            </section>
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>On-Class Demo</h3>
+                    </header>
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" autoplay="autoplay" src="images/hw13/demo_on_class.mp4"></video>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Two -->
+            <section id="two" class="spotlights">
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw13/IMG_8674.png" alt="" data-position="top center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>CoreXY Framework</h3>
+                            </header>
+                            <p>
+                                Having settled on the idea, we also discussed our technical solution. We chose to use modular circuitry and steps to drive the CoreXY framework. I failed to install the environment for Node.js at the first day due to version conflicts in some libraries.
+                                After Wenhao installed the coding enviorment, I coded for gcode parsing with Wenhao using his computer. To be specific, I helped him debug some issues. For instance, we had a problem reading the data. I found that the data
+                                type was inconsistent. The requirement was a number, but we used a string. After debugging everything, we finished the code for parsing gcode, transformed the 2D Cartisian coordinates into linear movement of two motors,
+                                then move the magnet line by line. The girl in the image is me!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw13/XY.JPG" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>XY Coordinate Calibration</h3>
+                            </header>
+                            <p>In the test, we unexpectedly found that the XY coordinates of the system were not consistent with those of gcode. To deal with this issue, first, I try to identify the Angle difference between the two coordinate tables. Using
+                                a straight line test, I found it's 45 degrees. And then I converted and corrected the angle difference by using the cosine sine formula.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw13/IDE.JPG" alt="" data-position="top center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Gcode Reading</h3>
+                            </header>
+                            <p>Our first version of the code required users to copy and paste gcode manually. In order to save this process, I tried the automatic reading of code for gcode file. But I found that this step required external libraries, but
+                                the IDE we were using forbade us from loading any external dependencies.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw13/github.JPG" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Contributed Code</h3>
+                            </header>
+                            <p>This image demonstrates the code I contributed in this project.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw13/system.jfif" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>System</h3>
+                            </header>
+                            <p>Look! Here is our final system! I share a sense of achievement when I see the system work!.</p>
+                        </div>
+                    </div>
+                </section>
+
+        </div>
+
+        <div id="main">
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Movement Trajectory Test</h3>
+                    </header>
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" autoplay="autoplay" src="images/hw13/test-line.mp4"></video>
+                    </p>
+                    <p>After confirming that the system could work properly, I fixed the pen on the hardware to confirm the motion trajectory again. It was perfect!</p>
+                </div>
+            </section>
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Final Test with Sand</h3>
+                    </header>
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" autoplay="autoplay" src="images/hw13/machine-working.mp4"></video>
+                    </p>
+                    <p>
+                        After the hardware was assembled, we did a final test. It works! So happy!
+                    </p>
+                </div>
+            </section>
+
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Discussion</h3>
+                    </header>
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" autoplay="autoplay" src="images/hw13/IMG_8673.mp4"></video>
+                    </p>
+                    <p>I had many discussion with my teammate during the whole process. How happy and honored I am to work with all these nice, talented and hard-working friends! This work gives me a very impressive memory！</p>
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="inner">
+                <section>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" />
+                            </div>
+                            <div class="field half">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" id="email" />
+                            </div>
+                            <div class="field">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="reset" value="Clear" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section class="split">
+                    <section>
+                        <div class="contact-method">
+                            <span class="icon solid alt fa-envelope"></span>
+                            <h3>Email</h3>
+                            <a href="#">yzihan@media.mit.edu</a>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <ul class="icons">
+                    <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

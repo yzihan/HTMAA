@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>HTMAA by Zihan Yan</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <!-- Note: The "styleN" class below should match that of the banner element. -->
+        <header id="header" class="alt style2">
+            <a href="index.html" class="logo"><strong>HTMAA</strong> <span>by Zihan Yan</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://yzihan.github.io/">About Me-Personal Website</a></li>
+                <li><a href="hw1.html">Week1-Final Project Sketch</a></li>
+                <li><a href="hw2.html">Week2-Computer Controlled Cutting</a></li>
+                <li><a href="hw3.html">Week3-Electronics Production</a></li>
+                <li><a href="hw4.html">Week4-3D Scanning and Printing</a></li>
+                <li><a href="hw5.html">Week5-Electronics Design</a></li>
+                <li><a href="hw6.html">Week6-Computer Controlled Machining</a></li>
+                <li><a href="hw7.html">Week7-Embedded Computing</a></li>
+                <li><a href="hw8.html">Week8-Casting and Molding</a></li>
+                <li><a href="hw9.html">Week9-Input Devices</a></li>
+                <li><a href="hw10.html">Week10-Output Devices</a></li>
+                <li><a href="hw11.html">Week11-Network and Communication</a></li>
+                <li><a href="hw12.html">Week12-Interface and Application Programming</a></li>
+                <li><a href="hw13.html">Week13-Machine Building</a></li>
+                <li><a href="hw14.html">Week14-Wildcard Week</a></li>
+                <li><a href="final.html">Final Project</a></li>
+                <ul class="actions stacked">
+                    <li><a href="#" class="button primary fit">Get Started</a></li>
+                    <!-- <li><a href="#" class="button fit">Log In</a></li> -->
+                </ul>
+            </ul>
+        </nav>
+
+        <!-- Banner -->
+        <!-- Note: The "styleN" class below should match that of the header element. -->
+        <section id="banner" class="style2">
+            <div class="inner">
+                <span class="image">
+								<img src="images/hw1/urban.png" alt="" />
+							</span>
+                <header class="major">
+                    <h1>Week11</h1>
+                </header>
+                <div class="content">
+                    <p>Network and Communications<br /> design, build, and connect wired or wireless node(s) with network or bus addresses</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- Main -->
+        <style>
+            .alt {
+                padding: 0 200px 0 200px;
+            }
+        </style>
+        <div id="main" class="alt">
+
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h1>Code for Ble Communication</h1>
+                    </header>
+                    <p>To be mentioned, the ble-based communication is already be done in <a href="hw7.html">Week7-Embedded Computing</a>. In <a href="hw9.html">Week9-Input Devices</a>, to make sure the robustness of the data transformation, I used serial
+                        port to record data. And this ble-communication version is based on the serial port transformation version. Because the Week7 website page focus more on the system demonstration, I would like to demonstrate the whole code for ble
+                        communication and data receiving in this week's websit.</p>
+                </div>
+            </section>
+
+            <pre><code class="lang-c++">import asyncio
+                import math
+                import numpy as np
+                from datetime import datetime
+                from typing import Callable, Any
+                
+                <span class="hljs-comment"># from aioconsole import ainput</span>
+                from bleak import BleakClient, discover
+                
+                connection_flag = False
+                
+                selected_device = []
+                
+                node = <span class="hljs-number">128</span>  <span class="hljs-comment"># max length</span>
+                filterLength = <span class="hljs-number">4</span>
+                
+                <span class="hljs-comment"># save the temporary data</span>
+                <span class="hljs-keyword">qw</span> = np.zeros((node, filterLength))
+                <span class="hljs-keyword">qx</span> = np.zeros((node, filterLength))
+                qy = np.zeros((node, filterLength))
+                qz = np.zeros((node, filterLength))
+                
+                <span class="hljs-comment"># save the filtered data</span>
+                filter_qw = np.zeros(node)
+                filter_qx = np.zeros(node)
+                filter_qy = np.zeros(node)
+                filter_qz = np.zeros(node)
+                
+                i = <span class="hljs-number">0</span>
+                threshold = <span class="hljs-number">0</span>.<span class="hljs-number">4</span>
+                error_num = np.zeros((node, <span class="hljs-number">4</span>))
+                filter_flag = True
+                
+                
+                def filter(quaternions):
+                    global i
+                    sumqw, sumqx, sumqy, sumqz = [], [], [], []
+                
+                    <span class="hljs-keyword">for</span> num, w, <span class="hljs-keyword">x</span>, <span class="hljs-keyword">y</span>, z in quaternions:
+                        num = <span class="hljs-keyword">int</span>(num)
+                        <span class="hljs-keyword">if</span> i &lt; filterLength:
+                            <span class="hljs-string">qw[num]</span>[i], <span class="hljs-string">qx[num]</span>[i], qy[num][i], qz[num][i] = w, <span class="hljs-keyword">x</span>, <span class="hljs-keyword">y</span>, z
+                        <span class="hljs-keyword">else</span>:
+                            <span class="hljs-comment"># remove the abnormal value</span>
+                            <span class="hljs-keyword">if</span> w &gt; <span class="hljs-number">1.1</span> <span class="hljs-keyword">or</span> w &lt; -<span class="hljs-number">1.1</span>:  <span class="hljs-comment"># made by noise</span>
+                                w = <span class="hljs-string">qw[num]</span>[filterLength-<span class="hljs-number">1</span>]
+                            elif math.fabs(w - <span class="hljs-string">qw[num]</span>[filterLength-<span class="hljs-number">1</span>]) &gt; threshold <span class="hljs-keyword">and</span> error_num[num][<span class="hljs-number">0</span>] &lt;= <span class="hljs-number">4</span>:  <span class="hljs-comment"># made by noise or fast moving</span>
+                                w = <span class="hljs-string">qw[num]</span>[filterLength-<span class="hljs-number">1</span>]
+                                error_num[num][<span class="hljs-number">0</span>] += <span class="hljs-number">1</span>  <span class="hljs-comment"># detect error made by fast moving</span>
+                            <span class="hljs-keyword">else</span>:
+                                error_num[num][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
+                
+                            <span class="hljs-keyword">if</span> <span class="hljs-keyword">x</span> &gt; <span class="hljs-number">1.1</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">x</span> &lt; -<span class="hljs-number">1.1</span>:
+                                <span class="hljs-keyword">x</span> = <span class="hljs-string">qx[num]</span>[filterLength-<span class="hljs-number">1</span>]
+                            elif math.fabs(<span class="hljs-keyword">x</span> - <span class="hljs-string">qx[num]</span>[filterLength-<span class="hljs-number">1</span>]) &gt; threshold <span class="hljs-keyword">and</span> error_num[num][<span class="hljs-number">1</span>] &lt;= <span class="hljs-number">4</span>:
+                                <span class="hljs-keyword">x</span> = <span class="hljs-string">qx[num]</span>[filterLength-<span class="hljs-number">1</span>]
+                                error_num[num][<span class="hljs-number">1</span>] += <span class="hljs-number">1</span>
+                            <span class="hljs-keyword">else</span>:
+                                error_num[num][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>
+                
+                            <span class="hljs-keyword">if</span> <span class="hljs-keyword">y</span> &gt; <span class="hljs-number">1.1</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">y</span> &lt; -<span class="hljs-number">1.1</span>:
+                                <span class="hljs-keyword">y</span> = qy[num][filterLength-<span class="hljs-number">1</span>]
+                            elif math.fabs(<span class="hljs-keyword">y</span> - qy[num][filterLength-<span class="hljs-number">1</span>]) &gt; threshold <span class="hljs-keyword">and</span> error_num[num][<span class="hljs-number">2</span>] &lt;= <span class="hljs-number">4</span>:
+                                <span class="hljs-keyword">y</span> = qy[num][filterLength-<span class="hljs-number">1</span>]
+                                error_num[num][<span class="hljs-number">2</span>] += <span class="hljs-number">1</span>
+                            <span class="hljs-keyword">else</span>:
+                                error_num[num][<span class="hljs-number">2</span>] = <span class="hljs-number">0</span>
+                
+                            <span class="hljs-keyword">if</span> z &gt; <span class="hljs-number">1.1</span> <span class="hljs-keyword">or</span> z &lt; -<span class="hljs-number">1.1</span>:
+                                z = qz[num][filterLength-<span class="hljs-number">1</span>]
+                            elif math.fabs(z - qz[num][filterLength-<span class="hljs-number">1</span>]) &gt; threshold <span class="hljs-keyword">and</span> error_num[num][<span class="hljs-number">3</span>] &lt;= <span class="hljs-number">4</span>:
+                                z = qz[num][filterLength-<span class="hljs-number">1</span>]
+                                error_num[num][<span class="hljs-number">3</span>] += <span class="hljs-number">1</span>
+                            <span class="hljs-keyword">else</span>:
+                                error_num[num][<span class="hljs-number">3</span>] = <span class="hljs-number">0</span>
+                
+                            <span class="hljs-comment"># update the buffer array / move left 1 unit</span>
+                            <span class="hljs-string">qw[num]</span>[:-<span class="hljs-number">1</span>], <span class="hljs-string">qx[num]</span>[:-<span class="hljs-number">1</span>], qy[num][:-<span class="hljs-number">1</span>], qz[num][:-<span class="hljs-number">1</span>] = <span class="hljs-string">qw[num]</span>[<span class="hljs-number">1</span>:], <span class="hljs-string">qx[num]</span>[<span class="hljs-number">1</span>:], qy[num][<span class="hljs-number">1</span>:], qz[num][<span class="hljs-number">1</span>:]
+                            <span class="hljs-string">qw[num]</span>[filterLength-<span class="hljs-number">1</span>], <span class="hljs-string">qx[num]</span>[filterLength-<span class="hljs-number">1</span>], qy[num][filterLength-<span class="hljs-number">1</span>], qz[num][filterLength-<span class="hljs-number">1</span>] = w, <span class="hljs-keyword">x</span>, <span class="hljs-keyword">y</span>, z
+                
+                            <span class="hljs-comment"># get the index of the max/min value in arrays</span>
+                            maxqw, maxqx, maxqy, maxqz = np.argmax(<span class="hljs-string">qw[num]</span>), np.argmax(<span class="hljs-string">qx[num]</span>), np.argmax(qy[num]), np.argmax(qz[num])
+                            minqw, minqx, minqy, minqz = np.argmin(<span class="hljs-string">qw[num]</span>), np.argmin(<span class="hljs-string">qx[num]</span>), np.argmin(qy[num]), np.argmin(qz[num])
+                
+                            <span class="hljs-comment"># sum except the max/min value</span>
+                            <span class="hljs-keyword">for</span> k in range(filterLength):
+                                <span class="hljs-keyword">if</span> k != maxqw <span class="hljs-keyword">or</span> k != minqw:
+                                    sumqw.append(<span class="hljs-string">qw[num]</span>[k])
+                                <span class="hljs-keyword">if</span> k != maxqx <span class="hljs-keyword">or</span> k != minqx:
+                                    sumqx.append(<span class="hljs-string">qx[num]</span>[k])
+                                <span class="hljs-keyword">if</span> k != maxqy <span class="hljs-keyword">or</span> k != minqy:
+                                    sumqy.append(qy[num][k])
+                                <span class="hljs-keyword">if</span> k != maxqz <span class="hljs-keyword">or</span> k != minqz:
+                                    sumqz.append(qz[num][k])
+                
+                            <span class="hljs-comment"># mean</span>
+                            w, <span class="hljs-keyword">x</span>, <span class="hljs-keyword">y</span>, z = sum(sumqw)/len(sumqw), sum(sumqx)/len(sumqx), sum(sumqy)/len(sumqy), sum(sumqz)/len(sumqz)
+                
+                            <span class="hljs-comment"># update the buffer array / remove the max/min value</span>
+                            <span class="hljs-string">qw[num]</span>[maxqw], <span class="hljs-string">qw[num]</span>[minqw] = w, w
+                            <span class="hljs-string">qx[num]</span>[maxqx], <span class="hljs-string">qx[num]</span>[minqx] = <span class="hljs-keyword">x</span>, <span class="hljs-keyword">x</span>
+                            qy[num][maxqy], qy[num][minqy] = <span class="hljs-keyword">y</span>, <span class="hljs-keyword">y</span>
+                            qz[num][maxqz], qz[num][minqz] = z, z
+                
+                            filter_<span class="hljs-string">qw[num]</span>, filter_<span class="hljs-string">qx[num]</span>, filter_qy[num], filter_qz[num] = w, <span class="hljs-keyword">x</span>, <span class="hljs-keyword">y</span>, z
+                            sumqw, sumqx, sumqy, sumqz = [], [], [], []
+                
+                    <span class="hljs-keyword">if</span> i &lt; filterLength:
+                        i += <span class="hljs-number">1</span>
+                
+                start_time = datetime.now()
+                end_time = datetime.now()
+                
+                class DataToFile:
+                    column_names = [<span class="hljs-string">"time"</span>, <span class="hljs-string">"delay"</span>, <span class="hljs-string">"data_value"</span>]
+                
+                    def __init_<span class="hljs-number">_</span>(self):
+                        pass
+                
+                    def write_to_txt(self, data_values, addr):
+                        <span class="hljs-keyword">print</span>(<span class="hljs-string">"---------------------------"</span>)
+                
+                        with <span class="hljs-keyword">open</span>(<span class="hljs-string">'/tmp/sensors-{}.txt'</span>.format(addr), <span class="hljs-string">'a'</span>) as f:
+                            f.write(data_values + <span class="hljs-string">'\n'</span>)
+                        try:
+                            quaternions = data_values.<span class="hljs-keyword">split</span>(<span class="hljs-string">';'</span>)[:-<span class="hljs-number">1</span>]
+                            ts = <span class="hljs-keyword">int</span>(quaternions[<span class="hljs-number">0</span>])
+                            quaternions = quaternions[<span class="hljs-number">1</span>:]
+                            <span class="hljs-keyword">for</span> i in range(len(quaternions)):
+                                quaternion = quaternions[i].<span class="hljs-keyword">split</span>(<span class="hljs-string">' '</span>)
+                                quaternions[i] = quaternion[:<span class="hljs-number">5</span>]
+                
+                            <span class="hljs-keyword">print</span>(<span class="hljs-string">'timestamp: {:+}ms'</span>.format(ts))
+                
+                            quaternions = np.array(quaternions)
+                            quaternions = quaternions.astype(np.float16)
+                
+                            filter(quaternions)
+                
+                            <span class="hljs-keyword">for</span> num, w, <span class="hljs-keyword">x</span>, <span class="hljs-keyword">y</span>, z in quaternions:
+                                num = <span class="hljs-keyword">int</span>(num)
+                
+                                <span class="hljs-keyword">print</span>(<span class="hljs-string">"{} {:+4.2f} {:+4.2f} {:+4.2f} {:+4.2f}"</span>.format(num, filter_<span class="hljs-string">qw[num]</span>, filter_<span class="hljs-string">qx[num]</span>, filter_qy[num], filter_qz[num]))
+                
+                                with <span class="hljs-keyword">open</span>(<span class="hljs-string">"/tmp/sensor-{}-{}.txt"</span>.format(num, addr), <span class="hljs-string">'w'</span>) as f:
+                                    f.write(<span class="hljs-string">"{:+4.2f} {:+4.2f} {:+4.2f} {:+4.2f}"</span>.format(filter_<span class="hljs-string">qw[num]</span>, filter_<span class="hljs-string">qx[num]</span>, filter_qy[num], filter_qz[num]))
+                        except Exception as e:
+                            <span class="hljs-keyword">print</span>(e)
+                            <span class="hljs-keyword">return</span>
+                
+                
+                class Connection:
+                    client: BleakClient = None
+                
+                    def __init_<span class="hljs-number">_</span>(
+                        self,
+                        loop: asyncio.AbstractEventLoop,
+                        read_characteristic: str,
+                        write_characteristic: str,
+                        data_dump_handler: Callable[[str, Any], None],
+                        data_dump_size: <span class="hljs-keyword">int</span> = <span class="hljs-number">10</span>,
+                    ):
+                        self.loop = loop
+                        self.read_characteristic = read_characteristic
+                        self.write_characteristic = write_characteristic
+                        self.data_dump_handler = data_dump_handler
+                
+                        self.last_packet_time = datetime.now()
+                        self.dump_size = data_dump_size
+                        self.connected = False
+                        self.connected_device = None
+                
+                        self.rx_data = <span class="hljs-string">''</span>
+                        self.rx_timestamps = []
+                        self.rx_delays = []
+                
+                
+                    async def cleanup(self):
+                        <span class="hljs-keyword">if</span> self.client:
+                            await self.client.stop_notify(read_characteristic)
+                            await self.client.disconnect()
+                
+                    async def manager(self):
+                        <span class="hljs-keyword">print</span>(<span class="hljs-string">"Starting connection manager."</span>)
+                        <span class="hljs-keyword">while</span> True:
+                            <span class="hljs-keyword">if</span> self.client:
+                                await self.connect()
+                            <span class="hljs-keyword">else</span>:
+                                await self.select_device()
+                                await asyncio.sleep(<span class="hljs-number">5.0</span>)
+                
+                    async def <span class="hljs-keyword">connect</span>(self):
+                        <span class="hljs-keyword">if</span> self.connected:
+                            <span class="hljs-keyword">return</span>
+                        try:
+                            <span class="hljs-keyword">print</span>(<span class="hljs-string">'try connecting'</span>)
+                            await self.client.connect()
+                            self.connected = await self.client.is_connected()
+                            <span class="hljs-keyword">if</span> self.connected:
+                                <span class="hljs-keyword">print</span>(F<span class="hljs-string">"Connected to {self.connected_device.name}"</span>)
+                                await self.client.start_notify(self.read_characteristic, self.notification_handler,)
+                                <span class="hljs-keyword">while</span> True:
+                                    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.connected:
+                                        <span class="hljs-keyword">break</span>
+                                    await asyncio.sleep(<span class="hljs-number">1.0</span>)
+                            <span class="hljs-keyword">else</span>:
+                                <span class="hljs-keyword">print</span>(f<span class="hljs-string">"Failed to connect to {self.connected_device.name}"</span>)
+                        except Exception as e:
+                            <span class="hljs-keyword">print</span>(e)
+                
+                    async def select_device(self):
+                        <span class="hljs-keyword">print</span>(<span class="hljs-string">"Bluetooh LE hardware warming up..."</span>)
+                        await asyncio.sleep(<span class="hljs-number">2.0</span>)  <span class="hljs-comment"># Wait for BLE to initialize.</span>
+                        devices = await discover()
+                
+                        <span class="hljs-keyword">print</span>(<span class="hljs-string">"Please select device: "</span>)
+                        response = -<span class="hljs-number">1</span>
+                        <span class="hljs-keyword">while</span> response == -<span class="hljs-number">1</span>:
+                            <span class="hljs-keyword">for</span> i, device in enumerate(devices):
+                                <span class="hljs-keyword">print</span>(f<span class="hljs-string">"{i}: {device.name}"</span>)
+                                <span class="hljs-keyword">if</span> device.name == <span class="hljs-string">'IMUsMonitor'</span>:
+                                    response = i
+                            <span class="hljs-keyword">if</span> response == -<span class="hljs-number">1</span>:
+                                devices = await discover()
+                
+                        <span class="hljs-comment"># while True:</span>
+                        <span class="hljs-keyword">print</span>(<span class="hljs-string">"Select device: "</span>, response)
+                
+                        <span class="hljs-keyword">print</span>(f<span class="hljs-string">"Connecting to {devices[response].name}"</span>)
+                        self.connected_device = devices[response]
+                        self.client = BleakClient(devices[response].address, loop=self.loop)
+                
+                    def record_time_info(self):
+                        present_time = datetime.now()
+                        self.rx_timestamps.append(present_time)
+                        self.rx_delays.append((present_time - self.last_packet_time).microseconds)
+                        self.last_packet_time = present_time
+                
+                    def clear_lists(self):
+                        self.rx_data = <span class="hljs-string">''</span>
+                
+                    def notification_handler(self, sender: str, data: Any):
+                        try:
+                            self.rx_data = str(data, <span class="hljs-string">'utf-8'</span>)
+                        except:
+                            <span class="hljs-keyword">print</span>(data)
+                            <span class="hljs-keyword">return</span>
+                        self.data_dump_handler(self.rx_data, sender)
+                        self.clear_lists()
+                
+                async def main():
+                    <span class="hljs-keyword">while</span> True:
+                <span class="hljs-comment">#        connection_flag = self.client.is_connected()</span>
+                        <span class="hljs-comment"># YOUR APP CODE WOULD GO HERE.</span>
+                        <span class="hljs-comment"># print('nihao')</span>
+                        await asyncio.sleep(<span class="hljs-number">1</span>)
+                
+                
+                <span class="hljs-comment">#############</span>
+                <span class="hljs-comment"># App Main</span>
+                <span class="hljs-comment">#############</span>
+                read_characteristic = <span class="hljs-string">"00001143-0000-1000-8000-00805f9b34fb"</span>
+                write_characteristic = <span class="hljs-string">"00001142-0000-1000-8000-00805f9b34fb"</span>
+                
+                <span class="hljs-keyword">if</span> __name_<span class="hljs-number">_</span> == <span class="hljs-string">"__main__"</span>:
+                
+                    <span class="hljs-keyword">while</span> True:
+                        <span class="hljs-comment"># Create the event loop.</span>
+                        loop = asyncio.get_event_loop()
+                
+                        data_to_file = DataToFile()
+                        connection = Connection(loop, read_characteristic, write_characteristic, data_to_file.write_to_txt)
+                        try:
+                            asyncio.ensure_future(connection.manager())
+                
+                            loop.run_forever()
+                        except KeyboardInterrupt:
+                            <span class="hljs-keyword">print</span>()
+                            <span class="hljs-keyword">print</span>(<span class="hljs-string">"User stopped program."</span>)
+                            <span class="hljs-keyword">break</span>
+                        finally:
+                            <span class="hljs-keyword">print</span>(<span class="hljs-string">"Disconnecting..."</span>)
+                            loop.run_until_complete(connection.cleanup())
+                </code></pre>
+
+        </div>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="inner">
+                <section>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" />
+                            </div>
+                            <div class="field half">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" id="email" />
+                            </div>
+                            <div class="field">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="reset" value="Clear" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section class="split">
+                    <section>
+                        <div class="contact-method">
+                            <span class="icon solid alt fa-envelope"></span>
+                            <h3>Email</h3>
+                            <a href="#">yzihan@media.mit.edu</a>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <ul class="icons">
+                    <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

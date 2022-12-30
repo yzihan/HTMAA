@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>HTMAA by Zihan Yan</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <!-- Note: The "styleN" class below should match that of the banner element. -->
+        <header id="header" class="alt style2">
+            <a href="index.html" class="logo"><strong>HTMAA</strong> <span>by Zihan Yan</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://yzihan.github.io/">About Me-Personal Website</a></li>
+                <li><a href="hw1.html">Week1-Final Project Sketch</a></li>
+                <li><a href="hw2.html">Week2-Computer Controlled Cutting</a></li>
+                <li><a href="hw3.html">Week3-Electronics Production</a></li>
+                <li><a href="hw4.html">Week4-3D Scanning and Printing</a></li>
+                <li><a href="hw5.html">Week5-Electronics Design</a></li>
+                <li><a href="hw6.html">Week6-Computer Controlled Machining</a></li>
+                <li><a href="hw7.html">Week7-Embedded Computing</a></li>
+                <li><a href="hw8.html">Week8-Casting and Molding</a></li>
+                <li><a href="hw9.html">Week9-Input Devices</a></li>
+                <li><a href="hw10.html">Week10-Output Devices</a></li>
+                <li><a href="hw11.html">Week11-Network and Communication</a></li>
+                <li><a href="hw12.html">Week12-Interface and Application Programming</a></li>
+                <li><a href="hw13.html">Week13-Machine Building</a></li>
+                <li><a href="hw14.html">Week14-Wildcard Week</a></li>
+                <li><a href="final.html">Final Project</a></li>
+                <ul class="actions stacked">
+                    <li><a href="#" class="button primary fit">Get Started</a></li>
+                    <!-- <li><a href="#" class="button fit">Log In</a></li> -->
+                </ul>
+            </ul>
+        </nav>
+
+        <!-- Banner -->
+        <!-- Note: The "styleN" class below should match that of the header element. -->
+        <section id="banner" class="style2">
+            <div class="inner">
+                <span class="image">
+								<img src="images/hw10/device.JPG" alt="" />
+							</span>
+                <header class="major">
+                    <h1>Week10</h1>
+                </header>
+                <div class="content">
+                    <p>Output Devices<br /> add an output device to a microcontroller board I am designed, and program it to do something.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Concept</h3>
+                    </header>
+                    <p>My final project will design haptic module. Therefore, in this assignment, I want to output analog signals and control haptic module by using PCB designed by myself.</p>
+                </div>
+            </section>
+
+            <!-- Two -->
+            <section id="two" class="spotlights">
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw10/solded.jpg" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Designed PCB</h3>
+                            </header>
+                            <p>I used the PCB designed in
+                                <a href="hw5.html">Week5-Electronics Design</a>. You can find more information about this PCB by click the link of Week5 website.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw10/haptic.JPG" alt="" data-position="top center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Ultrasonic Transceiver</h3>
+                            </header>
+                            <p>
+                                The ultrasound haptic modular I used is HiLetgo 10 Pairs 16mm Split Ultrasonic Transceiver. And the detailed descrption is this sensor is:</br>
+                                Nominal frequency (KHz): 40KHz </br>
+                                Emission sound pressure at10V (0dB = 0.02mPa): ≥110dB </br>
+                                Receiver sensitivity at40KHz (0dB = V / ubar): ≥-75dB </br>
+                                Capacitance at1KHz
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw10/operational.JPG" alt="" data-position="top center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Operational Amplifiers</h3>
+                            </header>
+                            <p>
+                                Operational amplifier (OP amp) plays an important role in the application of analog signal regulation. To make the system work, I added an OP amp between the controller and the output haptic modual.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <section>
+                    <a class="image">
+                        <img src="images/hw10/device.JPG" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Device</h3>
+                            </header>
+                            <p>And the image shows the whole device including power supplier, haptic modular, Opamp, and controller. And you can see the demo of this system below! Considering that haptic feedback is relatively difficult to present, I put
+                                a napkin in front of the haptic module. And I used "analogWrite(HapticPin1, 128); " in software, and thus haptic output is available only half the time in a cycle.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+        </div>
+
+
+        <!-- Three -->
+        <style>
+            .alt {
+                padding: 0 0 0 300px;
+            }
+        </style>
+        <div id="main" class="alt">
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Demo</h3>
+                    </header>
+                    <a class="video">
+                        <video preload width="640" height="480" controls src="images/hw10/output.mp4"></video>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="inner">
+                <section>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" />
+                            </div>
+                            <div class="field half">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" id="email" />
+                            </div>
+                            <div class="field">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="reset" value="Clear" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section class="split">
+                    <section>
+                        <div class="contact-method">
+                            <span class="icon solid alt fa-envelope"></span>
+                            <h3>Email</h3>
+                            <a href="#">yzihan@media.mit.edu</a>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <ul class="icons">
+                    <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

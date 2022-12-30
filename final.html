@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Zihan Yan HTMAA 2022</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo"><strong>HTMMM</strong> <span>by Zihan</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://yzihan.github.io/">About Me-Personal Website</a></li>
+                <li><a href="hw1.html">Week1-Final Project Sketch</a></li>
+                <li><a href="hw2.html">Week2-Computer Controlled Cutting</a></li>
+                <li><a href="hw3.html">Week3-Electronics Production</a></li>
+                <li><a href="hw4.html">Week4-3D Scanning and Printing</a></li>
+                <li><a href="hw5.html">Week5-Electronics Design</a></li>
+                <li><a href="hw6.html">Week6-Computer Controlled Machining</a></li>
+                <li><a href="hw7.html">Week7-Embedded Computing</a></li>
+                <li><a href="hw8.html">Week8-Casting and Molding</a></li>
+                <li><a href="hw9.html">Week9-Input Devices</a></li>
+                <li><a href="hw10.html">Week10-Output Devices</a></li>
+                <li><a href="hw11.html">Week11-Network and Communication</a></li>
+                <li><a href="hw12.html">Week12-Interface and Application Programming</a></li>
+                <li><a href="hw13.html">Week13-Machine Building</a></li>
+                <li><a href="hw14.html">Week14-Wildcard Week</a></li>
+                <li><a href="final.html">Final Project</a></li>
+                <ul class="actions stacked">
+                    <li><a href="#" class="button primary fit">Get Started</a></li>
+                    <!-- <li><a href="#" class="button fit">Log In</a></li> -->
+                </ul>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="#" class="button primary fit">Get Started</a></li>
+                <!-- <li><a href="#" class="button fit">Log In</a></li> -->
+            </ul>
+        </nav>
+
+        <section id="banner" class="style2">
+            <div class="inner">
+                <span class="image">
+								<img src="images/final/cover.JPG" alt="" />
+							</span>
+                <header class="major">
+                    <h1>Final Project</h1>
+                </header>
+                <div class="content">
+                    <p>Haptic experience for smartphone-based remote chatting</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Main -->
+        <div id="main">
+
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Demo Presentation</h3>
+                    </header>
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/final/Haptic.mp4"></video>
+                    </p>
+                </div>
+            </section>
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Motivation</h3>
+                    </header>
+                    <p>The act of smartphone-based voice chatting is an important element of many interpersonal activities, especially for people who have close relationships but do not live in the same physical space. However, The emotional atmosphere of
+                        the ecstasy moment in an intimate relationship is said to be tangible with the feeling of touch. Language is sometimes too pale to convey the inner feelings and the love towards the loved person. In this case, there is a missed
+                        opportunity to translate voice chatting into haptic experience, giving people a real sense of accompany.
+                    </p>
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/final/motivation.mp4"></video>
+                    </p>
+                </div>
+            </section>
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Electronics</h3>
+                    </header>
+                    <p>In this project, there are five main parts of electronics. 1) a micophone which is used to serve as input device to sense the sound in the voice chatting; 2) five line pizeo arrays which serves as output device to give people haptic
+                        experience; 3) an operational amplifier which is fundamentally a voltage amplifying device designed to be used with external feedback components; 4) a microcontroller and 5) a battery.
+                    </p>
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/final/electronic.mp4"></video>
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/elec.png" width="640" alt="" />
+                    </p>
+
+                    <header class="major">
+                        <h4>Microphone PCB Design</h4>
+                    </header>
+
+                    <p>
+                        I used SVG-PCB to design the PCB for microphone in this final project. SVG-PCB is an in-browser editor lets users design Printed Circuit Boards (PCB) from a code description. Because I already tried this in <a href="hw5.html">Week5-Electronics Design</a>,
+                        I feel comfortable to use this tool now. By referencing the PCB design in <a href="mic/hello.mic.45">hello.mic.45</a>, I started to design my own microphone PCB. Considering the small area in smartphone case, the main goal of this
+                        design is to reduce the size of the PCB. In this case, I tried to understand what is the smallest electronic unit to do what I want.
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/pcb-sketch.jpg" width="640" alt="" />
+                    </p>
+
+                    The next step is to use SVG-PCB to design the PCB that could be printed. When arranging, I also tried to make each part compact to reduce the area of the entire PCB.
+
+                    <p align="center">
+                        <img src="images/final/pcb.JPG" width="640" alt="" />
+                    </p>
+
+                    <p>
+                        Then I go the CBA lab, and would like to print it. The biggest issue I met in <a href="hw5.html">Week5-Electronics Design</a> is that I don't know the doi of the png file. But with the experience I had last time, I quickly set
+                        up the doi to 1000 this time. But this time I ran into a new problem. After I started the machine, even though I started the command line, the machine still didn't connect. Ozgun helped me deal with that. And very unexpectedly,
+                        near the end, I encountered a small incident. When the printing was over, I tried vacuuming up the fine material that had been cut. But because the PCB was too small, the vacuum cleaner picked up my PCB. So I had to reprint it.
+                    </p>
+
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/final/pcb-fab.mp4"></video>
+                    </p>
+
+                    <header class="major">
+                        <h4>Operational Amplifier</h4>
+                    </header>
+
+                    <p>I spent some time to learn operational amplifier in final project. An operational amplifier (op amp or opamp) is a DC-coupled high-gain electronic voltage amplifier with a differential input and, usually, a single-ended output. More
+                        details can be found in this video.</p>
+
+
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/final/amp.mp4"></video>
+                    </p>
+
+                    <p>I chose to use TLV237x-Q1 550-µA/Channel, 3-MHz Rail-to-Rail Input and Output Operational Amplifiers. And here is the datasheet.</p>
+
+                    <p align="center">
+                        <img src="images/final/amp.JPG" width="640" alt="" />
+                    </p>
+
+
+
+                    <header class="major">
+                        <h4>Piezoelectric Transducer</h4>
+                    </header>
+
+                    <p>A piezoelectric transducer can be used either to transform an electric current to an acoustic pressure field or, the opposite, to produce an electric current from an acoustic field. These devices are generally useful for applications
+                        that require the generation of sound in air and liquids. Examples of such applications include phased array microphones, ultrasound equipment, inkjet droplet actuators, drug discovery, sonar transducers, bioimaging, and acousto-biotherapeutics.
+                        This example shows how to couple piezoelectric vibrations in a transducer to an acoustics pressure wave in a fluid such as air or water. The physics that are coupled and solved are piezoelectric stress-strain, an electric field,
+                        and pressure acoustics in a fluid.</p>
+
+                    <p align="center">
+                        <img src="images/final/pizeo.JPG" width="640" alt="" />
+                    </p>
+
+                </div>
+            </section>
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Fabrication</h3>
+                    </header>
+                    <p>
+                        The phone case is 3D printed, because the Pizeo part of the circuit is very dense, plus the pizeo circuit is lined up inside the phone case but the other circuit is lined up outside the phone case. In the design, I set the phone case into two parts, and
+                        the two parts are not completely close, leaving room for wires to go through.
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/3D.png" width="640" alt="" />
+                    </p>
+
+                    <p>
+                        In order to facilitate the test of form factor design, besides printing the mobile phone case, I also 3D printed the mobile phone to test the fit degree of the case. In the middle of printing, I ran out of PLA, so I changed the PLA to another color and
+                        continued printing.
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/phone.jpg" width="640" alt="" />
+                    </p>
+
+                </div>
+            </section>
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Circuit</h3>
+                    </header>
+
+                    <p>
+                        I spent a lot of time on the line because a lot of pizeo was used, but the area of the phone case was small and the area taken up by removing the electronics left very little area for the line. I kept trying to arrage lines on scratch paper. After iterating
+                        many times, I found a way to make it.
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/line.JPG" width="640" alt="" />
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/case.JPG" width="640" alt="" />
+                    </p>
+
+                    <p>
+                        And here is the hardware demonstration.
+                    </p>
+
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/final/hardware.mp4"></video>
+                    </p>
+                </div>
+            </section>
+
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Interface for Microphone Test</h3>
+                    </header>
+
+                    <p>
+                        To test whether the microphone can sense the sound, I built a interface to visualize it. This interface visualizes a part of the functionality of the system (input device). The input sensors of this system are microphone, which can perceive the sound
+                        of the environment. When designing the interface, I regard the strength of signal received by the microphone as the trigger mechanism of button. To be specific, the "microphone button" is triggered when the perceived sound exceeds
+                        350 decibels.
+                    </p>
+
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/hw12/interface.mp4">
+                        </video>
+                    </p>
+
+                </div>
+            </section>
+
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Software</h3>
+                    </header>
+
+                    <p>
+                        The goal of the software is to control the vibration of the pizeo through changes in the sound signal. There are five rows of Pizeos on the hardware. The first two rows are controlled together, the middle row is controlled separately, and the last two
+                        rows are controlled together.
+                    </p>
+
+                    <p>
+                        The difficulty of software part is the frequency adjustment of analog signal. Arduino does not generate true analog outputs. The instantaneous output is always 0V or 5V. To create (mimic) an analog signal, the Arduino uses a technique called Pulse Width
+                        Modulation (PWM). By varying the duty cycle, we can mimic an “average” analog voltage. But we cannot adjust the frequency directly. PWM Frequency in arduino is 490Hz.
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/analog.JPG" width="640" alt="" />
+                    </p>
+
+                    <p align="center">
+                        <img src="images/final/PWM.JPG" width="640" alt="" />
+                    </p>
+
+                    <header class="major">
+                        <h4>Basic Principle of PWM</h4>
+                    </header>
+
+
+                    <p><strong>On-Time</strong> − Duration of time signal is high.</p>
+                    <p><strong>Off-Time</strong> − Duration of time signal is low.</p>
+                    <p><strong>Period</strong> − It is represented as the sum of on-time and off-time of PWM signal.</p>
+                    <p><strong>Duty Cycle</strong> − It is represented as the percentage of time signal that remains on during the period of the PWM signal.</p>
+                    <p><strong>Period-</strong> As shown in the figure, Ton denotes the on-time and Toff denotes the off-time of signal. Period is the sum of both on and off times and is calculated as shown in the following equation −</p>
+                    <blockquote>
+                        <p>$$T<em>{total} = T</em>{on}+T_{off}$$</p>
+                    </blockquote>
+                    <p><strong>Duty Cycle-</strong> Duty cycle is calculated as the on-time of the period of time. Using the period calculated above, duty cycle is calculated as −</p>
+                    <blockquote>
+                        <p>$$D = \frac{T<em>{on}}{T</em>{on}+T<em>{off}} = \frac{T</em>{on}}{T_{total}}$$</p>
+                    </blockquote>
+
+
+
+                    <header class="major">
+                        <h4>Frequency Changing of PWM Pins of Arduino</h4>
+                    </header>
+
+
+
+                    <pre><code class="lang-c++"><span class="hljs-keyword">void</span> <span class="hljs-built_in">setup</span>()
+                        {
+                            <span class="hljs-built_in">pinMode</span>(<span class="hljs-number">3</span>,<span class="hljs-number">155</span>);
+                            TCCR2B = TCCR2B &amp; B11111000 | B00000001; <span class="hljs-comment">// for PWM frequency of 31372.55 Hz</span>
+                        }
+                        <span class="hljs-keyword">void</span> <span class="hljs-built_in">loop</span>() 
+                        {
+                            <span class="hljs-built_in">analogWrite</span>(<span class="hljs-number">3</span>,<span class="hljs-number">155</span>);
+                            TCCR2B = TCCR2B &amp; B11111000 | B00000001; <span class="hljs-comment">// for PWM frequency of 31372.55 Hz</span>
+                        }
+                        </code></pre>
+
+
+                    <p>After making the coding part ready, the system can work now! Let's watch the video.</p>
+
+                    <p align="center">
+                        <video width="640" height="480" controls="controls" src="images/final/sound.mp4">
+                        </video>
+                    </p>
+
+                </div>
+            </section>
+
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Reflection</h3>
+                    </header>
+                    <p>It was a great experience to take this class. I learned a lot and met a lot of interesting people. I am very grateful to TAs who helped me a lot on fabrication, especially the fabrication process which needs to use big machine.
+                    </p>
+
+                </div>
+            </section>
+
+
+
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    </ul>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
