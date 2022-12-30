@@ -73,6 +73,39 @@
         <div id="main">
 
 
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h3>Introduction</h3>
+                    </header>
+                    <p>These PCB are designed for Shoes-based foot gesture sensing and interaction. The PCBs were originally designed for the Shoes++ project, which can be found at https://www.detachablesole.com/. The reason why I re-produced all these PCBs
+                        is that the old version is left in China, and when I would like to explore the foot interaction further and I found I don't have the hardware now.
+                    </p>
+                    <p>
+                        The overall function of this set of PCBs is to use the inertial measurement unit (IMU) to sense foot movement and thus understand the foot gesture and interaction. The whole sensor system includes three IMU nodes (secondary nodes), an Arduino Nano 33
+                        BLE (primary node) and lithium battery. I designed two PCBs here for multi IMUs with a small size. One PCB is the master node to control the following multi-IMUs. The other is the slave node which reduced the size of the PCB to
+                        only 1.1 cm by 1.1 cm.
+                    </p>
+                    <header class="major">
+                        <h3>Design and Fabrication Workflow Overview</h3>
+                    </header>
+                    <p>
+                        I designed the PCBs with EasyEDA (https://easyeda.com/). This PCB-making tool is provided by JLCPCB (https://jlcpcb.com/). This is a PCB company in Shenzhen, China, but it provides international service. I used the service from JLCPCB for two years because
+                        it is cheap and fast. And this time, I also sent the PCB to this company for printing.
+                    </p>
+                    <header class="major">
+                        <h3>Source File</h3>
+                    </header>
+                    <p>
+                        I uploaded all related files and codes to my GitHub: </br>
+                        PCB files: https://github.com/yzihan/SVG-PCB/tree/main/pcb </br>
+                        code for the controller: https://github.com/yzihan/Shoes/tree/main/arduino </br>
+                        code for data transformation (both versions of using BlueTooth and serial port): https://github.com/yzihan/Shoes/tree/main/data-trans </br>
+                    </p>
+                </div>
+            </section>
+
+
 
             <!-- Two -->
             <section id="two" class="spotlights">
